@@ -40,8 +40,8 @@ const userController = {
 
     updateUser(req, res) {
         User.findOneAndUpdate({_id: req.params.userId},
-                              {$set: req.body},
-                              {runValidators: true, new: true})
+            {$set: req.body},
+            {runValidators: true, new: true})
         .then((dbUser) => {
             if(!dbUser){
                 return res.status(404).json({message: 'No user was found with this id'});
