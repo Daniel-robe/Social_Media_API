@@ -31,7 +31,7 @@ const thoughtContoller = {
         Thought.create(req.body)
         .then((dbThought) => {
             return User.findOneAndUpdate(
-                { _id: req.body.userId },
+                { username: req.body.username },
                 { $push: { thoughts: dbThought._id } },
                 { new: true }
             );
